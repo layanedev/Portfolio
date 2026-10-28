@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio · Layane</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --vanilla: #FFF7E6;
+            --blush: #F7C8D3;
+            --rosewood: #B46A72;
+            --sage: #A8B58A;
+            --misty: #A9B7C6;
+            --midnight: #2D3A47;
+
+            --texto-escuro: #2D3A47;
+            --texto-claro: #FFF7E6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--vanilla);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: var(--midnight);
+            color: var(--vanilla);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--vanilla);
+        }
+
+        .logo-icon {
+            color: var(--blush);
+            font-size: 28px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--vanilla);
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 6px 4px;
+        }
+
+        nav a:hover {
+            color: var(--blush);
+        }
+
+        .btn-contato-nav {
+            background: var(--rosewood);
+            color: var(--vanilla) !important;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 600 !important;
+            transition: 0.3s;
+        }
+
+        .btn-contato-nav:hover {
+            background: var(--blush);
+            color: var(--midnight) !important;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: var(--midnight);
+            color: var(--vanilla);
+            padding: 80px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-imagem-box {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
+            background: var(--blush);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-2deg);
+            box-shadow: 10px 10px 0 var(--rosewood);
+            margin: 0 auto;
+        }
+
+        .hero-imagem-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-imagem-box .placeholder-text {
+            position: absolute;
+            color: var(--midnight);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(60px, 9vw, 110px);
+            font-weight: 800;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero-text h1 span {
+            color: var(--blush);
+            display: block;
+            font-size: 0.7em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0;
+            margin-top: 10px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            max-width: 400px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
+
+        .bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 20vw;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--misty);
+            opacity: 0.3;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--rosewood);
+            color: var(--vanilla);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            z-index: 10;
+            transition: 0.3s;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .scroll-btn:hover {
+            transform: translateX(-50%) scale(1.1);
+            background: var(--blush);
+            color: var(--midnight);
+        }
+
+        /* ========== SOBRE ========== */
+        .sobre {
+            padding: 120px 0 80px;
+            background: var(--vanilla);
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sobre-text h2 {
+            font-size: clamp(50px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 30px;
+            color: var(--midnight);
+        }
+
+        .sobre-text p {
+            font-size: 18px;
+            max-width: 450px;
+            margin-bottom: 40px;
+        }
+
+        .btn-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--rosewood);
+            color: var(--vanilla);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-linkedin:hover {
+            background: var(--midnight);
+        }
+
+        /* ========== NOVA ANIMAÇÃO SUBSTITUINDO A FOTO SECUNDÁRIA ========== */
+        .animacao-card {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 3/4;
+            margin-left: auto;
+            perspective: 1000px;
+        }
+
+        .card-3d {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: flutuar 6s ease-in-out infinite, girarSuave 12s ease-in-out infinite;
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            backface-visibility: hidden;
+            box-shadow: -10px 10px 0 var(--sage);
+        }
+
+        .card-face.front {
+            background: linear-gradient(145deg, var(--blush), var(--rosewood));
+            color: var(--midnight);
+        }
+
+        .card-face.back {
+            background: linear-gradient(145deg, var(--misty), var(--sage));
+            color: var(--midnight);
+            transform: rotateY(180deg);
+        }
+
+        /* Elementos decorativos */
+        .card-3d .estrela {
+            position: absolute;
+            color: var(--vanilla);
+            font-size: 20px;
+            opacity: 0.6;
+            animation: brilhar 2s ease-in-out infinite alternate;
+        }
+
+        .card-3d .estrela:nth-child(1) { top: 12%; left: 12%; animation-delay: 0s; }
+        .card-3d .estrela:nth-child(2) { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .card-3d .estrela:nth-child(3) { bottom: 25%; left: 18%; animation-delay: 1s; }
+        .card-3d .estrela:nth-child(4) { bottom: 15%; right: 12%; animation-delay: 1.5s; }
+
+        .card-3d .circulo-decorativo {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 247, 230, 0.3);
+            animation: pulsar 3s ease-in-out infinite;
+        }
+
+        .card-3d .circulo-decorativo.c1 {
+            width: 60px; height: 60px;
+            top: 10%; right: 10%;
+            animation-delay: 0s;
+        }
+
+        .card-3d .circulo-decorativo.c2 {
+            width: 100px; height: 100px;
+            bottom: 8%; left: 8%;
+            animation-delay: 1.5s;
+        }
+
+        .card-3d .linha-decorativa {
+            position: absolute;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,247,230,0.4), transparent);
+            top: 50%;
+            left: 10%;
+            animation: deslizar 4s ease-in-out infinite;
+        }
+
+        .card-3d .emoji-grande {
+            font-size: 64px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(45,58,71,0.2));
+            animation: balancar 3s ease-in-out infinite;
+        }
+
+        .card-3d .texto-card {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .card-3d .texto-card small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 12px;
+            opacity: 0.7;
+        }
+
+        /* Keyframes das animações */
+        @keyframes flutuar {
+            0%, 100% { transform: translateY(0) rotateZ(0deg); }
+            50% { transform: translateY(-18px) rotateZ(1.5deg); }
+        }
+
+        @keyframes girarSuave {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(15deg); }
+        }
+
+        @keyframes brilhar {
+            from { opacity: 0.2; transform: scale(0.8); }
+            to   { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        @keyframes pulsar {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.15); opacity: 0.6; }
+        }
+
+        @keyframes deslizar {
+            0%, 100% { transform: translateY(0); opacity: 0; }
+            50% { transform: translateY(-15px); opacity: 1; }
+        }
+
+        @keyframes balancar {
+            0%, 100% { transform: rotate(-6deg); }
+            50% { transform: rotate(6deg); }
+        }
+
+        /* Cards flutuantes reaproveitados */
+        .card-flutuante {
+            position: absolute;
+            background: var(--blush);
+            color: var(--midnight);
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(45, 58, 71, 0.15);
+            z-index: 10;
+        }
+
+        .card-flutuante.data {
+            top: 20%;
+            left: -30px;
+        }
+
+        .card-flutuante.nacionalidade {
+            bottom: 20%;
+            right: -30px;
+        }
+
+        /* ========== PROJETOS + QUALIDADES ========== */
+        .info-section {
+            background: var(--midnight);
+            color: var(--vanilla);
+            padding: 80px 0 100px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .projetos-col h2, .qualidades-col h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: var(--blush);
+        }
+
+        .projeto-item {
+            background: var(--vanilla);
+            color: var(--midnight);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .projeto-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .projeto-img-placeholder {
+            width: 100px;
+            height: 100px;
+            background: var(--sage);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            flex-shrink: 0;
+            color: var(--midnight);
+        }
+
+        .projeto-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .projeto-info p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .tag {
+            background: var(--misty);
+            color: var(--midnight);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .tag:nth-child(2) { background: var(--blush); }
+        .tag:nth-child(3) { background: var(--sage); }
+
+        .habilidade-item {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .habilidade-item .icone {
+            color: var(--rosewood);
+            font-size: 24px;
+            line-height: 1;
+            margin-top: 3px;
+        }
+
+        .habilidade-item h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: var(--vanilla);
+        }
+
+        .habilidade-item p {
+            font-size: 14px;
+            color: var(--misty);
+        }
+
+        /* ========== CONTATO ========== */
+        .contato {
+            background: var(--vanilla);
+            padding: 80px 0;
+        }
+
+        .contato-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contato h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--midnight);
+        }
+
+        .contato p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 450px;
+        }
+
+        .contato-caixa {
+            background: var(--midnight);
+            color: var(--vanilla);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 0 var(--blush);
+        }
+
+        .contato-caixa h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--vanilla);
+        }
+
+        .contato-caixa ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contato-caixa li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 15px;
+        }
+
+        .contato-caixa li span.icone {
+            color: var(--blush);
+            font-size: 20px;
+        }
+
+        /* ========== RODAPÉ ========== */
+        footer {
+            background: var(--midnight);
+            color: var(--misty);
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 850px) {
+            .hero-content, .sobre-content, .info-grid, .contato-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-imagem-box {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+
+            .animacao-card {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+
+            .card-flutuante.data { left: -10px; }
+            .card-flutuante.nacionalidade { right: -10px; }
+
+            .hero-text p, .sobre-text p { margin: 0 auto 40px; }
+
+            .projeto-item { flex-direction: column; text-align: center; }
+
+            .bg-text { font-size: 30vw; }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .card-3d .texto-card {
+                font-size: 22px;
+            }
+
+            .card-3d .emoji-grande {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">✦</span> Layane
+            </div>
+            <nav>
+                <a href="#sobre">Sobre mim</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#qualidades">Qualidades</a>
+                <a href="#contato" class="btn-contato-nav">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="bg-text">PORTFÓLIO</div>
+        <div class="container hero-content">
+
+            <!-- Foto principal -->
+            <div class="hero-imagem-box">
+                <img src="foto-principal.jpeg" alt="Foto da Layane"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="placeholder-text" style="display:none;">Coloque sua foto aqui<br></span>
+            </div>
+
+            <div class="hero-text">
+                <h1>PORT<br>FÓLIO <span>Layane</span></h1>
+                <p>Sou estudante de Informática e estou descobrindo o mundo da tecnologia, aprendendo coisas novas e transformando ideias em projetos!</p>
+
+                <div class="hero-info">
+                    <span>IG: @layane</span>
+                    <span>Email: seuemail@exemplo.com</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#sobre" class="scroll-btn">Scroll<br>down</a>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+        <div class="container sobre-content">
+            <div class="sobre-text">
+                <h2>Me<br>Conheça<br>Melhor</h2>
+                <p>Sou uma aluna dedicada ao meu desenvolvimento pessoal e profissional. No curso técnico, tenho a oportunidade de conhecer a área da informática, praticar a lógica e explorar a criação de sites e sistemas. Me destaco em trabalho em equipe, Criatividade, didática e oratória.</p>
+                <a href="#" class="btn-linkedin">
+                    🔗 linkedin.com/in/layane
+                </a>
+            </div>
+
+            <div style="position: relative;">
+                <!-- ANIMAÇÃO SUBSTITUINDO A FOTO SECUNDÁRIA -->
+                <div class="animacao-card">
+                    <div class="card-3d">
+                        <!-- Elementos decorativos animados -->
+                        <span class="estrela">✦</span>
+                        <span class="estrela">✦</span>
+                        <span class="estrela">✦</span>
+                        <span class="estrela">✦</span>
+                        <div class="circulo-decorativo c1"></div>
+                        <div class="circulo-decorativo c2"></div>
+                        <div class="linha-decorativa"></div>
+
+                        <!-- Frente do card -->
+                        <div class="card-face front">
+                            <div class="emoji-grande">✧</div>
+                            <div class="texto-card">
+                                Layane
+                                <small>16 anos · Brasileira</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-flutuante data">16 anos</div>
+                <div class="card-flutuante nacionalidade">Brasileira</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS E QUALIDADES -->
+    <section class="info-section" id="projetos">
+        <div class="container info-grid">
+
+            <div class="projetos-col">
+                <h2>Projetos</h2>
+
+                <div class="projeto-item">
+                    <div class="projeto-img-placeholder">
+                        Imagem<br>aqui
+                    </div>
+                    <div class="projeto-info">
+                        <h3>Meu Portfólio</h3>
+                        <p>Criação deste site usando HTML, CSS e design no Figma.</p>
+                    </div>
+                </div>
+
+                <div class="projeto-item">
+                    <div class="projeto-img-placeholder">
+                        Imagem<br>aqui
+                    </div>
+                    <div class="projeto-info">
+                        <h3>Em construção</h3>
+                        <p>Em breve, este cantinho terá projetos escolares, sites e outras criações minhas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qualidades-col" id="qualidades">
+                <h2>Qualidades</h2>
+
+                <div class="tags-container">
+                    <span class="tag">#Trabalho em equipe</span>
+                    <span class="tag">#Design</span>
+                    <span class="tag">#Criatividade</span>
+                </div>
+
+                <div class="habilidade-item">
+                    <span class="icone">✦</span>
+                    <div>
+                        <h4>Trabalho em equipe</h4>
+                        <p>Colaboração, compartilhamento de ideias e respeito às opiniões.</p>
+                    </div>
+                </div>
+
+                <div class="habilidade-item">
+                    <span class="icone">✦</span>
+                    <div>
+                        <h4>Design</h4>
+                        <p>Explorando a criação de páginas com Figma, HTML e CSS.</p>
+                    </div>
+                </div>
+
+                <div class="habilidade-item">
+                    <span class="icone">✦</span>
+                    <div>
+                        <h4>Criatividade</h4>
+                        <p>Buscando soluções, organizando ideias e aprendendo com desafios.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <div class="container contato-content">
+            <div>
+                <h2>Vamos<br>conversar?</h2>
+                <p>Este é o começo da minha trajetória profissional — e ainda tenho muito para aprender e construir. Obrigada por visitar!</p>
+                <p style="color: var(--rosewood); font-weight: 600;">Disponível para novos desafios.</p>
+            </div>
+
+            <div class="contato-caixa">
+                <h3>Contato</h3>
+                <ul>
+                    <li><span class="icone">📍</span> Brasil</li>
+                    <li><span class="icone">✉️</span> seuemail@exemplo.com</li>
+                    <li><span class="icone">📸</span> @layane</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>© 2026 Layane · Feito com carinho e um pouquinho de glitter.</p>
+    </footer>
+
+</body>
+</html>
